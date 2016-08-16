@@ -65,7 +65,7 @@ echo '<div class="container"><div class="row"><div class="one-half column" style
 foreach ($items as $item) {
 	$count = $count + 1;
   $itemDesc = $grDbAccess->getItem($item["itemId"]);
-  echo '<tr><td><h6>' . $itemDesc["item"] . '</h6></td><td><h6> ' . $item["qty"] . ' ' . $itemDesc["measure"] . '</h6></td><td> <h6><a href=removeItem.php?itemId=' . $itemDesc["itemId"] . '> remove</a></h6></td>';
+  echo '<tr><td><h6>' . $itemDesc["item"] . '</h6></td><td><h6> ' . /* $item["qty"] . ' ' . $itemDesc["measure"] .*/ '</h6></td><td> <h6><a href=removeItem.php?itemId=' . $itemDesc["itemId"] . '> remove</a></h6></td>';
 }
 
 echo '</table></div></div></div>';
@@ -77,8 +77,8 @@ echo <<<EOT
   <form action="addItem.php" method="post">
     <h2>Add item to list: </h2></br>
     <h5>item name: <input type="text" name="item"></input></br>
-    quantity of items: <input type="number" name="qty"></input></br>
-    measure: <input type="text" name="measure"></input></br>
+   <!---- quantity of items: <input type="number" name="qty"></input></br>
+    measure: <input type="text" name="measure"></input></br> ------>
     <br></br></h5>
     <input type="submit" value="Add"></input>
   </form>

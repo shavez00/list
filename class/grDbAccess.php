@@ -84,7 +84,6 @@ class grDbAccess implements grDbInterface {
     try {
             //this would be our query.
             $sql = "SELECT * FROM items WHERE item LIKE :item";
-            //if (isset($itemArray["measure"])) if ($itemArray["measure"] != NULL) $sql = $sql . " AND measure = :measure";
             //prepare the statements
             $stmt = $this->con->prepare( $sql );
             //give value to named parameter :username
@@ -118,11 +117,12 @@ class grDbAccess implements grDbInterface {
 
   public function addItemToList($grListId, $itemId, $qty=NULL) {
 	   try {
-            //this would be our query.
+		        //query to check if item is already on list
+ 
             $sql = "SELECT * FROM  grListANDItemsIntersection WHERE grListId = :grListId";
             //prepare the statements
             $stmt = $this->con->prepare( $sql );
-            //give value to named parameter :username
+            //give value to named parameter
             $stmt->bindValue( "grListId", $grListId, PDO::PARAM_STR );
             $stmt->execute();
             $itemArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
