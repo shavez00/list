@@ -79,8 +79,22 @@ class grDbAccess implements grDbInterface {
         }
   }
 
-  public function setItem(array $itemArray) {
+  public function setItem(array $itemArray, $flag=NULL) {
 	  if ($itemArray["item"] == NULL) throw new Exception("Item name needs to be set!");
+	  if ($flag!==NULL) try {
+		        $sql = "INSERT INTO items(item, measure) VALUES(:item, :measure)";
+            
+            $stmt = $this->con->prepare( $sql );
+            $stmt->bindValue( "item", $itemArray["item"], PDO::PARAM_STR );
+            $stmt->bindValue( "measure", $itemArray["measure"], PDO::PARAM_STR );
+            $stmt->execute();
+            $result = $this->con->lastInsertId();
+            return $result;
+          } catch( PDOException $e ) {
+	          echo "Error in the setItem method, at line " . __LINE__. " in file " . __FILE__ . "</br>";
+            echo $e->getMessage() . "</br>";
+            exit;
+          }
     try {
             //this would be our query.
             $sql = "SELECT * FROM items WHERE item LIKE :item";
