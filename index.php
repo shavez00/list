@@ -62,14 +62,6 @@ $count = 0;
 
 echo '<div class="container"><div class="row"><div class="one-half column" style="margin-top: 0%"><h2>Items on grocery list - ' . $grName . '</h2></br><table>';
 
-foreach ($items as $item) {
-	$count = $count + 1;
-  $itemDesc = $grDbAccess->getItem($item["itemId"]);
-  echo '<tr><td><h6>' . $itemDesc["item"] . '</h6></td><td><h6> ' . /* $item["qty"] . ' ' . $itemDesc["measure"] .*/ '</h6></td><td> <h6><a href=removeItem.php?itemId=' . $itemDesc["itemId"] . '> remove</a></h6></td>';
-}
-
-echo '</table></div></div></div>';
-
 if (empty($_REQUEST["item"])) {
 echo <<<EOT
   
@@ -86,3 +78,11 @@ echo <<<EOT
 
 EOT;
 }
+
+foreach ($items as $item) {
+	$count = $count + 1;
+  $itemDesc = $grDbAccess->getItem($item["itemId"]);
+  echo '<tr><td><h6>' . $itemDesc["item"] . '</h6></td><td><h6> ' . /* $item["qty"] . ' ' . $itemDesc["measure"] .*/ '</h6></td><td> <h6><a href=removeItem.php?itemId=' . $itemDesc["itemId"] . '> remove</a></h6></td>';
+}
+
+echo '</table></div></div></div>';
