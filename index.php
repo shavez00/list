@@ -71,7 +71,7 @@ echo <<<EOT
     <h5>item name: <input type="text" name="item"></input></br>
    <!---- quantity of items: <input type="number" name="qty"></input></br>
     measure: <input type="text" name="measure"></input></br> ------>
-    <br></br></h5>
+    </h5>
     <input type="submit" value="Add"></input>
   </form>
   </div></div></div>
