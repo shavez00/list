@@ -1,0 +1,7 @@
+<?php
+
+define( "DB_DSN", "mysql:host=listDb;dbname=grList" ); //this constant will be use as our connectionstring/dsn
+define( "DB_USERNAME", "" ); //username of the database
+define( "DB_PASSWORD", "" ); //password of the database
+
+?>
