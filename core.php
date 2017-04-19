@@ -12,8 +12,8 @@
 *  Modified this from the original autoloader to be core.php and exist in the Framework namespace
 */
 define( "DB_DSN", "mysql:host=listDb;dbname=grList" ); //this constant will be use as our connectionstring/dsn
-define( "DB_USERNAME", "root" ); //username of the database
-define( "DB_PASSWORD", "July,252014" ); //password of the database
+define( "DB_USERNAME", "" ); //username of the database
+define( "DB_PASSWORD", "" ); //password of the database
 define ("PATH_SEPERATOR", "/");  //Need to define PATH_SEPERATOR to eliminate notice message about constant not being defined.
 /**try {
   if (session_status()==1) {
