@@ -7,12 +7,15 @@ pass=$3
 if [[ "$port" -gt 0 ]]; then
 
 #create the docker bridge network that the database and webserver will run on
-docker network create -d bridge list-network
+docker network create -d bridge list-network > /dev/null
+echo "List App container bridge network up!"
 #create the mysql server
-docker run -d --name listDb --network="list-network" -v "$PWD":/var/lib/mysql shavez00/alpine-mysql
+docker run -d --name listDb --network="list-network" -v "$PWD":/var/lib/mysql shavez00/alpine-mysql . /dev/null
+echo "List Add database listDb up!"
 
 #assigns the varible "port" to the first option of the docker run flag "-p"
-docker run -d --name list --network="list-network" -p $port:80 -v "$PWD":/var/www/localhost/htdocs/list shavez00/alpine-apache2-php:withPdoForMysqlSupport
+docker run -d --name list --network="list-network" -p $port:80 -v "$PWD":/var/www/localhost/htdocs/list shavez00/alpine-apache2-php:withPdoForMysqlSupport > /dev/null
+echo "List App webserver 'list' up!"
 
 else
 
@@ -24,6 +27,7 @@ fi
 if [[ "$user" != "" && "$pass" != "" ]]; then
 #create the database and tables needed
 docker exec -it listDb sh /var/lib/mysql/createDb.sh $user $pass
+echo "Database has been initalized and List App is ready to use!"
 
 else
 
