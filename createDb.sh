@@ -6,8 +6,8 @@ pass=$2
 if [[ "$user" != "" || "$pass" != "" ]]; then
 
 USER="CREATE USER '$user'@'list.list-network' IDENTIFIED BY '$pass';
-GRANT ALL PRIVLEGES on grList.* TO '$user'@'list.list-network';
-FLUSH PRIVLEGES;
+GRANT ALL PRIVILEGES on grList.* TO '$user'@'list.list-network';
+FLUSH PRIVILEGES;
 REVOKE DROP ON grList.* FROM '$user'@'list.list-network';"
 
 mysql -e "$USER"
