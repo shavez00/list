@@ -22,7 +22,7 @@ fi
 
 if [[ "$user" -gt 0 ]]; then
 #create the database and tables needed
-docker exec -it listDb /var/lib/mysql/createDb.sh $2 $3
+docker exec -it listDb /var/lib/mysql/createDb.sh $user $pass
 
 else
 
