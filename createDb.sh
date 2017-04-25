@@ -20,7 +20,7 @@ mysql -e "$TABLE"
 user=$1
 pass=$2
 
-if [[ "$user" -gt 0 ]]; then
+if [[ "$user" != "" ]]; then
 
 USER="CREATE USER '$user'@'list.list-network' IDENTIFIED BY '$pass';
 GRANT ALL PRIVLEGES on grList.* TO '$user'@list.list-network';
@@ -28,3 +28,9 @@ FLUSH PRIVLEGES;
 REVOKE DROP ON grList.* FROM '$user'@'list.list-network';"
 
 mysql -e "$USER"
+
+else
+
+echo "You need to set a username and password for the datbase user.  ex ./listAppRun.sh port username password"
+
+fi
