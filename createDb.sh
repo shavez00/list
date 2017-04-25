@@ -20,7 +20,7 @@ mysql -e "$TABLE"
 user=$1
 pass=$2
 
-if [[ "$user" != "" ]]; then
+if [[ "$user" != "" || "$pass" != "" ]]; then
 
 USER="CREATE USER '$user'@'list.list-network' IDENTIFIED BY '$pass';
 GRANT ALL PRIVLEGES on grList.* TO '$user'@list.list-network';
