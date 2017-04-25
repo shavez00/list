@@ -17,6 +17,7 @@ docker run -d --name list --network="list-network" -p $port:80 -v "$PWD":/var/ww
 else
 
 echo "You need to specify a port that you want the Grocery List app to run on, the port number needs to be a integer.  Example ./listAppRun.sh 8080"
+exit
 
 fi
 
@@ -26,7 +27,7 @@ docker exec -it listDb /var/lib/mysql/createDb.sh $user $pass
 
 else
 
-echo "[ERORR}You need to enter in a username and password for the database user/n
+echo "[ERROR}You need to enter in a username and password for the database user/n
 Exiting list app and removing containers"
 docker stop list
 docker stop listDb
