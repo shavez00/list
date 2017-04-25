@@ -27,7 +27,7 @@ docker exec -it listDb /var/lib/mysql/createDb.sh $user $pass
 
 else
 
-echo "[ERROR}You need to enter in a username and password for the database user
+echo "[ERROR]You need to enter in a username and password for the database user
 Exiting list app and removing containers
 Please be patient, cleaning up..."
 docker stop list > /dev/null
