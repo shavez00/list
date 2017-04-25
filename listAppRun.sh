@@ -27,12 +27,16 @@ docker exec -it listDb /var/lib/mysql/createDb.sh $user $pass
 
 else
 
-echo "[ERROR}You need to enter in a username and password for the database user/n
-Exiting list app and removing containers"
+echo "[ERROR}You need to enter in a username and password for the database user
+Exiting list app and removing containers
+Please be patient, cleaning up..."
 docker stop list > /dev/null
+echo "Cleaning up..."
 docker stop listDb > /dev/null
-docker rm list
-docker rm listDb
-docker network rm list-network
+docker rm list > /dev/null
+echo "Almost done..."
+docker rm listDb > /dev/null
+docker network rm list-network > /dev/null
+echo "Clean up complete, all list app containers removed"
 
 fi
