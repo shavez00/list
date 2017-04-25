@@ -20,7 +20,7 @@ echo "You need to specify a port that you want the Grocery List app to run on, t
 
 fi
 
-if [[ "$user" -gt 0 ]]; then
+if [[ "$user" != "" && "$pass" != "" ]]; then
 #create the database and tables needed
 docker exec -it listDb /var/lib/mysql/createDb.sh $user $pass
 
