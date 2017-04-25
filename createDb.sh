@@ -6,7 +6,7 @@ pass=$2
 if [[ "$user" != "" || "$pass" != "" ]]; then
 
 USER="CREATE USER '$user'@'list.list-network' IDENTIFIED BY '$pass';
-GRANT ALL PRIVLEGES on grList.* TO '$user'@list.list-network';
+GRANT ALL PRIVLEGES on grList.* TO '$user'@'list.list-network';
 FLUSH PRIVLEGES;
 REVOKE DROP ON grList.* FROM '$user'@'list.list-network';"
 
