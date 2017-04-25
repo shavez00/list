@@ -31,6 +31,6 @@ mysql -e "$USER"
 
 else
 
-echo "You need to set a username and password for the datbase user.  ex ./listAppRun.sh port username password"
+echo "You need to set a username and password for the datbase user.  ex ./createDb.sh username password"
 
 fi
