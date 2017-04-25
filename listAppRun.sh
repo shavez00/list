@@ -23,7 +23,7 @@ fi
 
 if [[ "$user" != "" && "$pass" != "" ]]; then
 #create the database and tables needed
-docker exec -it listDb /var/lib/mysql/createDb.sh $user $pass
+docker exec -it listDb sh /var/lib/mysql/createDb.sh $user $pass
 
 else
 
