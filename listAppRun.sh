@@ -9,7 +9,7 @@ if [[ "$port" -gt 0 ]]; then
 #create the docker bridge network that the database and webserver will run on
 docker network create -d bridge list-network
 #create the mysql server
-docker run -d --name listDb --network="list-network" -v "$PWD":/var/list/mysql shavez00/alpine-mysql
+docker run -d --name listDb --network="list-network" -v "$PWD":/var/lib/mysql shavez00/alpine-mysql
 
 #assigns the varible "port" to the first option of the docker run flag "-p"
 docker run -d --name list --network="list-network" -p $port:80 -v "$PWD":/var/www/localhost/htdocs/list shavez00/alpine-apache2-php:withPdoForMysqlSupport
