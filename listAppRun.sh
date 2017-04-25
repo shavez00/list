@@ -38,5 +38,6 @@ echo "Almost done..."
 docker rm listDb > /dev/null
 docker network rm list-network > /dev/null
 echo "Clean up complete, all list app containers removed"
+echo "Please use the following format.  ex ./listAppRun.sh 8080 DBusername DBpassword"
 
 fi
