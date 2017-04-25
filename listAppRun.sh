@@ -29,8 +29,8 @@ else
 
 echo "[ERROR}You need to enter in a username and password for the database user/n
 Exiting list app and removing containers"
-docker stop list
-docker stop listDb
+docker stop list > /dev/null
+docker stop listDb > /dev/null
 docker rm list
 docker rm listDb
 docker network rm list-network
