@@ -27,6 +27,10 @@ fi
 if [[ "$user" != "" && "$pass" != "" ]]; then
 #create the database and tables needed
 docker exec -it listDb sh /var/lib/mysql/createDb.sh $user $pass
+
+#update dbenv.php file
+mv dbenv.php.bak dbenv.php
+
 echo "Database has been initalized and List App is ready to use!"
 
 else
